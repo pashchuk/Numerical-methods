@@ -1,7 +1,6 @@
 __author__ = 'Eduard'
 
-import MatrixLoader
+from Matrix import Matrix
 
-loader = MatrixLoader.MatrixLoader()
-matrix = loader.getMatrix()
+matrix = Matrix()
 print matrix
