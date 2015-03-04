@@ -14,15 +14,15 @@ namespace lab1
 
 		public static void Main(string[] args)
 		{
-			var gaus = new Gaus("input.txt");
+			var gaus = new SquaresMethod("input.txt");
 		}
 
-		 public class Gaus
+		 public class SquaresMethod
 		 {
 			 public double[,] Matrix { get; private set; }
 			 public string Path { get; private set; }
 
-			 public Gaus(int size, double fillValue = 1.0)
+			 public SquaresMethod(int size, double fillValue = 1.0)
 			 {
 				 Matrix = new double[size, size];
 				 for (var i = 0; i < size; i++)
@@ -30,7 +30,7 @@ namespace lab1
 						 Matrix[i, j] = fillValue;
 			 }
 
-			 public Gaus(string path)
+			 public SquaresMethod(string path)
 			 {
 				 try
 				 {
@@ -50,11 +50,6 @@ namespace lab1
 				 {
 					 MessageBox.Show(ex.Message, "File not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				 }
-			 }
-
-			 public void SolveGaus()
-			 {
-				 
 			 }
 		 }
 	}
