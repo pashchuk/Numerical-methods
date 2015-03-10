@@ -16,7 +16,11 @@ namespace lab1
 
 		#region Properties
 
-
+		public T this[int row, int column]
+		{
+			get { return _matrix[row, column]; }
+			set { _matrix[row, column] = value; }
+		}
 
 		#endregion
 
