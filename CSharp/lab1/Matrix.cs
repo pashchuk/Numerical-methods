@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -31,6 +32,9 @@ namespace lab1
 		public Matrix(int rows, int columns)
 		{
 			_matrix = new T[rows, columns];
+			for (int i = 0; i < rows; i++)
+				for (int j = 0; j < columns; j++)
+					_matrix[i, j] = default(T);
 		}
 		public Matrix(int size) : this(size, size) { }
 
@@ -96,6 +100,17 @@ namespace lab1
 		public int MinInColumn(int column, out T minValue)
 		{
 			throw new NotImplementedException();
+		}
+
+		public bool CheckOnSymetric()
+		{
+			for(int i = 0; i < Rows; i++)
+				for (int j = 0; j < Columns; j++)
+				{
+					if (i == j) continue;
+					if (!_matrix[i, j].Equals(_matrix[j, i])) return false;
+				}
+			return true;
 		}
 		#endregion
 
