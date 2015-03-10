@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,7 +32,6 @@ namespace lab1
 		{
 			_matrix = new T[rows, columns];
 		}
-
 		public Matrix(int size) : this(size, size) { }
 
 		#endregion
@@ -63,6 +63,39 @@ namespace lab1
 				_matrix[i, column1] = _matrix[i, column2];
 				_matrix[i, column2] = tempvariable;
 			}
+		}
+
+		public int MaxInRow(int row)
+		{
+			throw new NotImplementedException();
+		}
+		public int MaxInRow(int row, out T maxValue)
+		{
+			throw new NotImplementedException();
+		}
+		public int MinInRow(int row)
+		{
+			throw new NotImplementedException();
+		}
+		public int MinInRow(int row, out T minValue)
+		{
+			throw new NotImplementedException();
+		}
+		public int MaxInColumn(int column)
+		{
+			throw new NotImplementedException();
+		}
+		public int MaxInColumn(int column, out T maxValue)
+		{
+			throw new NotImplementedException();
+		}
+		public int MinInColumn(int column)
+		{
+			throw new NotImplementedException();
+		}
+		public int MinInColumn(int column, out T minValue)
+		{
+			throw new NotImplementedException();
 		}
 		#endregion
 
