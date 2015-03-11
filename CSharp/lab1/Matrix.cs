@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -102,6 +103,15 @@ namespace lab1
 			throw new NotImplementedException();
 		}
 
+		public void Print(TextWriter writer)
+		{
+			for (int i = 0; i < Rows; i++)
+			{
+				for (int j = 0; j < Columns; j++)
+					writer.Write(string.Format("{0:0.000}  ", _matrix[i, j]));
+				writer.WriteLine();
+			}
+		}
 		public bool CheckOnSymetric()
 		{
 			for(int i = 0; i < Rows; i++)
