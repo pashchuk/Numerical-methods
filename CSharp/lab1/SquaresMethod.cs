@@ -90,19 +90,27 @@ namespace lab1
 
 		public void Solve()
 		{
+			Console.WriteLine("------ Input matrix ------");
 			_matrix.Print(Console.Out);
 			Console.WriteLine();
-			var f2 = factorise();
+			Console.WriteLine("------ Input vector ------");
+			foreach (var d in _vector)
+				Console.Write("{0:0.000}  ", d);
 			Console.WriteLine();
+			Console.WriteLine();
+			Console.WriteLine("---- Factorise matrix ----");
+			var f2 = factorise();
 			f2.Print(Console.Out);
 			Console.WriteLine();
+			Console.WriteLine("------ Result vector -----");
 			var res = Check(f2, _vector);
 			foreach (var a in res)
 				Console.WriteLine(a);
+			Console.WriteLine();
+			Console.WriteLine("---- difference vector ---");
 			var ver = verify(_matrix, res);
 			for (int i = 0; i < ver.Length; i++)
-				Console.WriteLine("Input Value = {0:0.000} Result Value = {1:0.000} Diferrence = {2:0.000000000}",
-					_vector[i], res[i], _vector[i] - ver[i]);
+				Console.WriteLine(_vector[i] - ver[i]);
 		}
 
 		#endregion
