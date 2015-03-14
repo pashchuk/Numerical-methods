@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
 using System.IO;
 
-namespace lab1
+namespace Nums
 {
 	public class SquaresMethod
 	{

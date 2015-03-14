@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab1
+namespace Nums
 {
 	public class Matrix<T> where T : struct 
 	{

@@ -6,6 +6,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nums;
 
 namespace lab1
 {
