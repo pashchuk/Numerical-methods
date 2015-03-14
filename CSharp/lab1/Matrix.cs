@@ -112,6 +112,11 @@ namespace lab1
 				writer.WriteLine();
 			}
 		}
+
+		public T[,] GetMatrixPointer()
+		{
+			return _matrix;
+		}
 		public bool CheckOnSymetric()
 		{
 			for(int i = 0; i < Rows; i++)

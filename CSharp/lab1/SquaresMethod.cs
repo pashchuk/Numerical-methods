@@ -70,6 +70,20 @@ namespace lab1
 			return x;
 		}
 
+		private unsafe double[] verify(Matrix<double> sourceMatrix, double[] resultVector)
+		{
+			var size = resultVector.Length;
+			var verifyVector = new double[size];
+			fixed (double* pMatrix = sourceMatrix.GetMatrixPointer(),
+				pVector = resultVector, pVerifyVector = verifyVector)
+			{
+				for (int i = 0; i < size; i++)
+					for (int j = 0; j < size; j++)
+						*(pVerifyVector + i) += pMatrix[i*size + j]*pVector[j];
+			}
+			return verifyVector;
+		}
+
 		#endregion
 
 		#region public Methods
@@ -85,6 +99,10 @@ namespace lab1
 			var res = Check(f2, _vector);
 			foreach (var a in res)
 				Console.WriteLine(a);
+			var ver = verify(_matrix, res);
+			for (int i = 0; i < ver.Length; i++)
+				Console.WriteLine("Input Value = {0:0.000} Result Value = {1:0.000} Diferrence = {2:0.000000000}",
+					_vector[i], res[i], _vector[i] - ver[i]);
 		}
 
 		#endregion
