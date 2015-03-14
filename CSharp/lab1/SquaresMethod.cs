@@ -39,19 +39,13 @@ namespace lab1
 		{
 			var temp = new Matrix<double>(_matrix.Rows);
 			for (int i = 0; i < _matrix.Rows; i++)
-			{
-				double sum = 0;
-				for (int k = 0; k < i; k++)
-					sum += temp[k, i]*temp[k, i];
-				temp[i, i] = Math.Sqrt(_matrix[i, i] - sum);
-				for (int j = i + 1; j < _matrix.Columns; j++)
+				for (int j = i; j < _matrix.Columns; j++)
 				{
-					sum = 0;
+					double sum = 0;
 					for (int k = 0; k < i; k++)
 						sum += temp[k, i]*temp[k, j];
-					temp[i, j] = temp[j,i] = (_matrix[i, j] - sum)/temp[i, i];
+					temp[i, j] = temp[j, i] = (i == j) ? Math.Sqrt(_matrix[i, i] - sum) : (_matrix[i, j] - sum)/temp[i, i];
 				}
-			}
 			return temp;
 		}
 
