@@ -13,6 +13,7 @@ namespace Nums
 
 		private Matrix<double> _matrix;
 		private double[] _vector;
+		private double[] _solution;
 
 		#endregion
 
@@ -55,6 +56,7 @@ namespace Nums
 				}
 				iterationCount++;
 			} while (isEnd(eps: epsilon, curr: currentSolution, prev: previousSolution));
+			_solution = currentSolution;
 		}
 
 		private bool isEnd(double[] curr, double[] prev, double eps)
@@ -67,7 +69,14 @@ namespace Nums
 
 		#region public Methods
 
-
+		public void Solve()
+		{
+			calculate(_matrix, _vector);
+			foreach (var d in _solution)
+			{
+				Console.WriteLine(d);
+			}
+		}
 
 		#endregion
 
