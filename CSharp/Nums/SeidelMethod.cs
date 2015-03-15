@@ -130,9 +130,9 @@ namespace Nums
 				Console.WriteLine("{0,10:0.0000000}", a);
 			Console.WriteLine();
 			Console.WriteLine("---- difference vector ---");
-			var ver = verify(_matrix, _solution);
-			for (int i = 0; i < ver.Length; i++)
-				Console.WriteLine(_vector[i] - ver[i]);
+			var difference = getDifferenceVector(_solution);
+			foreach (var d in difference)
+				Console.WriteLine(d);
 			Console.WriteLine();
 			Console.WriteLine("---- Iterations data -----");
 			foreach (var iterationData in _iterationsData)
@@ -148,6 +148,26 @@ namespace Nums
 				Console.WriteLine();
 				Console.WriteLine();
 			}
+			var math = new[]
+			{
+				-3.0130838,
+				-3.3958789,
+				6.7574725,
+				-0.4911243
+			};
+			Console.WriteLine("---- difference Mathcad ---");
+			var dif = getDifferenceVector(math);
+			foreach (var d in dif)
+				Console.WriteLine(d);
+			Console.WriteLine();
+			Console.WriteLine("---- solution difference between mathcad and our programm ---");
+			Console.WriteLine("{0,-15} | {1,-15} | {2,-15}", " program", " mathcad", " result");
+			for (int i = 0; i < 50; i++)
+				Console.Write('-');
+			Console.WriteLine();
+			for (int i = 0; i < dif.Length; i++)
+				Console.WriteLine("{0,15:0.000000000000} | {1,15:0.000000000000} | {2,15:0.############}",
+					_solution[i], math[i], _solution[i] - math[i]);
 		}
 
 		#endregion
