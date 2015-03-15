@@ -6,7 +6,47 @@ using System.Threading.Tasks;
 
 namespace Nums
 {
-	class SeidelMethod
+	public class SeidelMethod
 	{
+		#region Fields
+
+		private Matrix<double> _matrix;
+		private double[] _vector;
+
+		#endregion
+
+		#region Properties
+
+
+
+		#endregion
+
+		#region Costructors
+
+		public SeidelMethod(Matrix<double> inputMatrix, double[] vector)
+		{
+			_matrix = inputMatrix;
+			_vector = vector;
+		}
+
+		#endregion
+
+		#region private Methods
+
+		
+
+		#endregion
+
+		#region public Methods
+
+
+
+		#endregion
+
+		#region Events
+
+
+
+		#endregion
 	}
 }
