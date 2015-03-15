@@ -55,7 +55,7 @@ namespace Nums
 					currentSolution[i] = (vector[i] - sum)/matrix[i, i];
 				}
 				iterationCount++;
-			} while (isEnd(eps: epsilon, curr: currentSolution, prev: previousSolution));
+			} while (!isEnd(eps: epsilon, curr: currentSolution, prev: previousSolution));
 			_solution = currentSolution;
 		}
 
@@ -63,6 +63,20 @@ namespace Nums
 		{
 			var sum = curr.Select((cur, i) => (cur - prev[i])*(cur - prev[i])).Sum();
 			return Math.Sqrt(sum) <= eps;
+		}
+
+		private unsafe double[] verify(Matrix<double> sourceMatrix, double[] resultVector)
+		{
+			var size = resultVector.Length;
+			var verifyVector = new double[size];
+			fixed (double* pMatrix = sourceMatrix.GetMatrixPointer(),
+				pVector = resultVector, pVerifyVector = verifyVector)
+			{
+				for (int i = 0; i < size; i++)
+					for (int j = 0; j < size; j++)
+						*(pVerifyVector + i) += pMatrix[i * size + j] * pVector[j];
+			}
+			return verifyVector;
 		}
 
 		#endregion
@@ -73,9 +87,11 @@ namespace Nums
 		{
 			calculate(_matrix, _vector);
 			foreach (var d in _solution)
-			{
 				Console.WriteLine(d);
-			}
+			Console.WriteLine();
+			var ver = verify(_matrix, _solution);
+			foreach (var d in ver)
+				Console.WriteLine(d);
 		}
 
 		#endregion
