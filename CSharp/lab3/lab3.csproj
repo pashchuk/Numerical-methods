@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>f27fe43b-597a-47e1-aacc-e086bf6a4536</ProjectGuid>
+    <ProjectGuid>{4C0C526A-BE7C-45C5-A5B8-C23086B37C68}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>lab3</RootNamespace>
@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nums\Nums.csproj">
+      <Project>{4bd3cb0a-801c-4dca-905d-cb4026d4c73e}</Project>
+      <Name>Nums</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
